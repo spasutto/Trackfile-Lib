@@ -1,4 +1,7 @@
-PHP_IGC version 0.1
+Trackfile-Lib, PHP class for loading IGC, GPX and FLG files, can convert to GPX
+Copyright (C) 2019  Sylvain PASUTTO
+
+forked from PHP_IGC version 0.1
 
 PHP_IGC Classes read and manage IGC files and data.
 Copyright (C) 2007  name of Mike Milano
@@ -18,25 +21,4 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 
-Instructions: Include PHP_IGC.php and instantiate the PHP_IGC class
-	      with the path to an IGC file.
-
-Example:
-
-<?php
-
-$igc = new PHP_IGC('/path/to/my_igc_file.igc');
-$igc->setDetails();
-
-$google_maps_code = $igc->getMap('ABCDEFG', 640, 480);
-?>
-<html>
-<head>
-	<title>PHP IGC</title>
-</head>
-<body>
-
-	<?php echo $google_maps_code; ?>
-
-</body>
-</html>
+Instructions: see examples
