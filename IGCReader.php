@@ -1,15 +1,13 @@
 <?php
+require_once(dirname(__FILE__).'/ITrackfileReader.php');
 /**
- * PHP_IGC
+ * IGCReader
+ * forked from project php-igc by Mike Milano <coder1@gmail.com>
  *
  * This class is instanciated with the file path of the IGC file. It
  * will create an array of IGC record objects for convenient use of the data.
- *
- * @version 0.1
- * @author Mike Milano <coder1@gmail.com>
- * @project php-igc
  */
-class PHP_IGC
+class IGCReader implements ITrackfileReader
 {
   /**
    * The date and time of the flight
@@ -68,7 +66,7 @@ class PHP_IGC
   public $duration;
 
   /**
-   * Class constructor creates the PHP_IGC object from a file path.
+   * Class constructor creates the IGCReader object from a file path.
    *
    * @param        string  $file_path usually this will be the request vars
    */
@@ -112,9 +110,16 @@ class PHP_IGC
       foreach ($this->records as $each) {
         if ($each->type == 'H') {
           if ($each->tlc == 'DTE') {
-            $this->datetime->setDate('20'.substr($each->value, 4, 2),
-                                     substr($each->value, 2, 2),
-                                     substr($each->value, 0, 2));
+            if ($this->startsWith($each->value, 'DATE:')) {
+              $this->datetime->setDate(intval('20'.substr($each->value, 9, 2)),
+                                       intval(substr($each->value, 7, 2)),
+                                       intval(substr($each->value, 5, 2)));
+            }
+            else {
+              $this->datetime->setDate(intval('20'.substr($each->value, 4, 2)),
+                                       intval(substr($each->value, 2, 2)),
+                                       intval(substr($each->value, 0, 2)));
+            }
           }
           elseif ($each->tlc == 'PLT') {
             $this->pilot = ucwords(strtolower($each->value));
@@ -144,6 +149,31 @@ class PHP_IGC
     if ($this->min_altitude == 80000) {
       $this->min_altitude = 0;
     }
+  }
+
+  /**
+   * Returns the point list
+   */
+  public function getRecords()
+  {
+    $pt_records = array();
+    $this->setDetails();
+    //$date = str_replace('+00:00', 'Z', date('c', $this->datetime->getTimestamp()));// $this->datetime;
+    $date = $this->datetime;// $this->toGMT($this->datetime);
+    //$dateinit = $date;
+    foreach ($this->records as $each) {
+      if ($each->type == "B")
+      {
+        $date->setTime(intval($each->time_array['h']), intval($each->time_array['m']), intval($each->time_array['s']));
+        //$date->add(new DateInterval("PT".intval($each->time_array['h'])."H".$each->time_array['m']."M".$each->time_array['s']."S"));
+        $pt_records[] = (object)[
+        'date' => clone $date,
+        'latitude' => $each->latitude['decimal_degrees'],
+        'longitude' => $each->longitude['decimal_degrees'],
+        'altitude' => ''.$each->pressure_altitude];
+      }
+    }
+    return $pt_records;
   }
 
   /**
@@ -244,6 +274,12 @@ function loadIGC() {
   {
     require(dirname(__FILE__).DIRECTORY_SEPARATOR.
             "lib".DIRECTORY_SEPARATOR.$class_name.".php");
+  }
+  
+  private static function startsWith($haystack, $needle)
+  {
+    $length = strlen($needle);
+    return (substr($haystack, 0, $length) === $needle);
   }
 }
 ?>
