@@ -1,6 +1,7 @@
 <?php
 require(dirname(__FILE__).'/IGCReader.php');
 require(dirname(__FILE__).'/FLGReader.php');
+require(dirname(__FILE__).'/GPXReader.php');
 
 /**
  * Class utility for loading a trackfile
@@ -21,6 +22,8 @@ class TrackfileLoader
 				return new IGCReader($file);
 			case 'flg':
 				return new FLGReader($file);
+			case 'gpx':
+				return new GPXReader($file);
 			default:
 				return false;
 		}

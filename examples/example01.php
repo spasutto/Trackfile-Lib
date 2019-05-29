@@ -5,6 +5,7 @@ else
 {
 	echo "<a href='".$_SERVER['REQUEST_URI']."?file=".urlencode("trackfiles/trackfile.igc")."'>Example IGC</a><BR>";
 	echo "<a href='".$_SERVER['REQUEST_URI']."?file=".urlencode("trackfiles/trackfile.flg")."'>Example FLG</a><BR>";
+	echo "<a href='".$_SERVER['REQUEST_URI']."?file=".urlencode("trackfiles/trackfile.gpx")."'>Example GPX</a><BR>";
 	exit(0);
 }
 
