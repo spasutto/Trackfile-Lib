@@ -3,14 +3,14 @@ require_once(dirname(__FILE__).'/ITrackfileReader.php');
 
 
 /**
- * Reads GPX file
+ * Reads KML file
  */
-class GPXReader implements ITrackfileReader
+class KMLReader implements ITrackfileReader
 {
 	private $fhandle;
 
 	/**
-	 * Class constructor creates the FLGReader object from a file path.
+	 * Class constructor creates the KMLReader object from a file path.
    *
    * @param        string  $file_path usually this will be the request vars
    */
@@ -25,7 +25,8 @@ class GPXReader implements ITrackfileReader
   public function getRecords()
   {
     $pt_records = array();
-    $xml = null;
+    //TODO
+    /*$xml = null;
     if ($this->fhandle) {
       $namespaces = $this->fhandle->getNamespaces(true);
       if(isset($namespaces[""]))  // if you have a default namespace
@@ -57,7 +58,7 @@ class GPXReader implements ITrackfileReader
       if (count($pt_records)<=0)
         foreach($xml->xpath("//default:wpt") as $pt)
           $assign_pt($pt);
-    }
+    }*/
     return $pt_records;
   }
 }

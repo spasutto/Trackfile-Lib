@@ -20,7 +20,7 @@ class FLGReader implements ITrackfileReader
 	private $fhandle;
 
 	/**
-	 * Class constructor creates the PHP_IGC object from a file path.
+	 * Class constructor creates the FLGReader object from a file path.
    *
    * @param        string  $file_path usually this will be the request vars
    */

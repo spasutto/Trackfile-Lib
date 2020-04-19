@@ -5,6 +5,10 @@ else
 {
 	echo "<a href='".$_SERVER['REQUEST_URI']."?file=".urlencode("trackfiles/trackfile.igc")."'>Example IGC</a><BR>";
 	echo "<a href='".$_SERVER['REQUEST_URI']."?file=".urlencode("trackfiles/trackfile.flg")."'>Example FLG</a><BR>";
+	echo "<a href='".$_SERVER['REQUEST_URI']."?file=".urlencode("trackfiles/trackfile.gpx")."'>Example GPX</a><BR>";
+	echo "<a href='".$_SERVER['REQUEST_URI']."?file=".urlencode("trackfiles/waypoints.gpx")."'>Example GPX (waypoints)</a><BR>";
+	echo "<a href='".$_SERVER['REQUEST_URI']."?file=".urlencode("trackfiles/waypoints.wpt")."'>Example WPT</a><BR>";
+	echo "<a href='".$_SERVER['REQUEST_URI']."?file=".urlencode("trackfiles/trackfile.kml")."'>Example KML</a><BR>";
 	exit(0);
 }
 

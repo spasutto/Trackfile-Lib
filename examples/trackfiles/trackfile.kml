@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+	<Document>
+		<name>Flight Tracks</name>
+		<Folder>
+			<name>Arrivals</name>
+			<Placemark>
+				<name>E170</name>
+				<adflag>A</adflag>
+				<flightid>TCF7521</flightid>
+				<styleUrl>#arrival</styleUrl>
+				<gx:Track>
+					<altitudeMode>absolute</altitudeMode>
+					<extrude>1</extrude>
+					<when>2010-05-01T13:00:00-05</when>
+					<when>2010-05-01T13:00:04-05</when>
+					<when>2010-05-01T13:00:09-05</when>
+					<when>2010-05-01T13:00:13-05</when>
+					<when>2010-05-01T13:00:18-05</when>
+					<when>2010-05-01T13:00:23-05</when>
+					<when>2010-05-01T13:00:27-05</when>
+					<when>2010-05-01T13:00:32-05</when>
+					<when>2010-05-01T13:00:37-05</when>
+					<when>2010-05-01T13:00:41-05</when>
+					<when>2010-05-01T13:00:46-05</when>
+					<when>2010-05-01T13:00:51-05</when>
+					<when>2010-05-01T13:00:55-05</when>
+					<when>2010-05-01T13:01:00-05</when>
+					<when>2010-05-01T13:01:05-05</when>
+					<when>2010-05-01T13:01:09-05</when>
+					<when>2010-05-01T13:01:14-05</when>
+					<when>2010-05-01T13:01:19-05</when>
+					<when>2010-05-01T13:01:23-05</when>
+					<when>2010-05-01T13:01:28-05</when>
+					<when>2010-05-01T13:01:33-05</when>
+					<when>2010-05-01T13:01:37-05</when>
+					<when>2010-05-01T13:01:42-05</when>
+					<when>2010-05-01T13:01:47-05</when>
+					<when>2010-05-01T13:01:51-05</when>
+					<when>2010-05-01T13:01:56-05</when>
+					<when>2010-05-01T13:02:00-05</when>
+					<when>2010-05-01T13:02:05-05</when>
+					<when>2010-05-01T13:02:10-05</when>
+					<when>2010-05-01T13:02:14-05</when>
+					<when>2010-05-01T13:02:19-05</when>
+					<when>2010-05-01T13:02:24-05</when>
+					<when>2010-05-01T13:02:28-05</when>
+					<when>2010-05-01T13:02:33-05</when>
+					<when>2010-05-01T13:02:38-05</when>
+					<when>2010-05-01T13:02:42-05</when>
+					<when>2010-05-01T13:02:47-05</when>
+					<when>2010-05-01T13:02:52-05</when>
+					<when>2010-05-01T13:02:56-05</when>
+					<when>2010-05-01T13:03:01-05</when>
+					<when>2010-05-01T13:03:06-05</when>
+					<when>2010-05-01T13:03:10-05</when>
+					<when>2010-05-01T13:03:15-05</when>
+					<when>2010-05-01T13:03:20-05</when>
+					<when>2010-05-01T13:03:24-05</when>
+					<when>2010-05-01T13:03:29-05</when>
+					<when>2010-05-01T13:03:33-05</when>
+					<when>2010-05-01T13:03:38-05</when>
+					<when>2010-05-01T13:03:43-05</when>
+					<when>2010-05-01T13:03:47-05</when>
+					<when>2010-05-01T13:03:52-05</when>
+					<when>2010-05-01T13:03:57-05</when>
+					<when>2010-05-01T13:04:01-05</when>
+					<when>2010-05-01T13:04:06-05</when>
+					<when>2010-05-01T13:04:11-05</when>
+					<when>2010-05-01T13:04:15-05</when>
+					<when>2010-05-01T13:04:20-05</when>
+					<when>2010-05-01T13:04:24-05</when>
+					<when>2010-05-01T13:04:29-05</when>
+					<when>2010-05-01T13:04:34-05</when>
+					<when>2010-05-01T13:04:38-05</when>
+					<when>2010-05-01T13:04:43-05</when>
+					<when>2010-05-01T13:04:48-05</when>
+					<when>2010-05-01T13:04:52-05</when>
+					<when>2010-05-01T13:04:57-05</when>
+					<when>2010-05-01T13:05:00-05</when>
+					<gx:coord>-93.3806146339391 44.8823651507134 2743</gx:coord>
+					<gx:coord>-93.3773041814209 44.887531728655 2743</gx:coord>
+					<gx:coord>-93.3742856469083 44.8942041806778 2743</gx:coord>
+					<gx:coord>-93.3722375106026 44.9009231720158 2743</gx:coord>
+					<gx:coord>-93.3711934089417 44.9077495987718 2712</gx:coord>
+					<gx:coord>-93.3707288919852 44.9145219645156 2712</gx:coord>
+					<gx:coord>-93.3703882714439 44.921240089024 2682</gx:coord>
+					<gx:coord>-93.3700882719793 44.9278850664392 2682</gx:coord>
+					<gx:coord>-93.369810041597 44.934389356737 2651</gx:coord>
+					<gx:coord>-93.3696836566166 44.9408553642446 2651</gx:coord>
+					<gx:coord>-93.3695425129226 44.9473561165969 2621</gx:coord>
+					<gx:coord>-93.3693185423471 44.9537360442564 2621</gx:coord>
+					<gx:coord>-93.3693194298816 44.9599975904123 2590</gx:coord>
+					<gx:coord>-93.3694031671108 44.9661411653607 2590</gx:coord>
+					<gx:coord>-93.3693840701674 44.9721433662718 2560</gx:coord>
+					<gx:coord>-93.3692180132117 44.9781295444861 2530</gx:coord>
+					<gx:coord>-93.3691451194519 44.9840448037796 2530</gx:coord>
+					<gx:coord>-93.3691016671806 44.9899713582099 2499</gx:coord>
+					<gx:coord>-93.3689494749454 44.9958413836039 2469</gx:coord>
+					<gx:coord>-93.3687664425911 45.0015898503441 2469</gx:coord>
+					<gx:coord>-93.3686331392066 45.0072067405394 2438</gx:coord>
+					<gx:coord>-93.368599726987 45.0127741072778 2438</gx:coord>
+					<gx:coord>-93.3686335399802 45.0181909829245 2408</gx:coord>
+					<gx:coord>-93.3686494842522 45.0234209328517 2377</gx:coord>
+					<gx:coord>-93.3684675008434 45.0286421277802 2377</gx:coord>
+					<gx:coord>-93.3683004008135 45.0337736830037 2347</gx:coord>
+					<gx:coord>-93.3682154531592 45.0388787100883 2347</gx:coord>
+					<gx:coord>-93.3683732351584 45.0439463933312 2316</gx:coord>
+					<gx:coord>-93.3684142261585 45.0490625635571 2286</gx:coord>
+					<gx:coord>-93.368143196103 45.0541794203461 2286</gx:coord>
+					<gx:coord>-93.367535632513 45.0592327492686 2255</gx:coord>
+					<gx:coord>-93.3659957839062 45.0642802941983 2225</gx:coord>
+					<gx:coord>-93.3633687278349 45.0690971409498 2194</gx:coord>
+					<gx:coord>-93.3595471289752 45.0735562314314 2164</gx:coord>
+					<gx:coord>-93.354507806741 45.0775832626329 2133</gx:coord>
+					<gx:coord>-93.3485772854268 45.0808293296313 2103</gx:coord>
+					<gx:coord>-93.3421088995911 45.0832469498159 2072</gx:coord>
+					<gx:coord>-93.3351951799649 45.0848109253641 2042</gx:coord>
+					<gx:coord>-93.3280418232705 45.0854246893649 2011</gx:coord>
+					<gx:coord>-93.3209037884868 45.085161376704 1981</gx:coord>
+					<gx:coord>-93.3144723535558 45.0839515303103 1920</gx:coord>
+					<gx:coord>-93.3088086501455 45.0819151336509 1859</gx:coord>
+					<gx:coord>-93.3036917357871 45.0792511074707 1828</gx:coord>
+					<gx:coord>-93.2993102013018 45.0761649196153 1798</gx:coord>
+					<gx:coord>-93.2958637974439 45.0728030913231 1768</gx:coord>
+					<gx:coord>-93.2932247031583 45.0693710694135 1737</gx:coord>
+					<gx:coord>-93.2910486937635 45.0659261208859 1707</gx:coord>
+					<gx:coord>-93.2888955993508 45.0625213360315 1646</gx:coord>
+					<gx:coord>-93.2867217490801 45.0591551785287 1615</gx:coord>
+					<gx:coord>-93.2847336413534 45.0557231883841 1554</gx:coord>
+					<gx:coord>-93.28312407167 45.0523278244803 1493</gx:coord>
+					<gx:coord>-93.2820244198825 45.0489932635616 1463</gx:coord>
+					<gx:coord>-93.280973634799 45.045699024227 1432</gx:coord>
+					<gx:coord>-93.2799787649067 45.0423671615142 1402</gx:coord>
+					<gx:coord>-93.2791066054659 45.0390946347227 1341</gx:coord>
+					<gx:coord>-93.2784127726862 45.0358634874951 1310</gx:coord>
+					<gx:coord>-93.2779112647802 45.0326008999249 1249</gx:coord>
+					<gx:coord>-93.2774525889269 45.029330264578 1219</gx:coord>
+					<gx:coord>-93.2770784201422 45.0260213245381 1188</gx:coord>
+					<gx:coord>-93.2766188240203 45.0227403501287 1158</gx:coord>
+					<gx:coord>-93.275816823547 45.0195461585342 1127</gx:coord>
+					<gx:coord>-93.2748914840222 45.0163603671711 1066</gx:coord>
+					<gx:coord>-93.2740540575136 45.0131542183389 1036</gx:coord>
+					<gx:coord>-93.2733145981662 45.010040506328 1006</gx:coord>
+					<gx:coord>-93.2724700860766 45.0070495365802 975</gx:coord>
+					<gx:coord>-93.2720166974715 45.0052389419128 957</gx:coord>
+					<gx:angles>20 0 0</gx:angles>
+					<gx:angles>20 0 0</gx:angles>
+					<gx:angles>20 0 0</gx:angles>
+					<gx:angles>10 0 0</gx:angles>
+					<gx:angles>10 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>0 0 0</gx:angles>
+					<gx:angles>10 0 0</gx:angles>
+					<gx:angles>20 0 0</gx:angles>
+					<gx:angles>30 0 0</gx:angles>
+					<gx:angles>40 0 0</gx:angles>
+					<gx:angles>50 0 0</gx:angles>
+					<gx:angles>60 0 0</gx:angles>
+					<gx:angles>70 0 0</gx:angles>
+					<gx:angles>80 0 0</gx:angles>
+					<gx:angles>90 0 0</gx:angles>
+					<gx:angles>100 0 0</gx:angles>
+					<gx:angles>110 0 0</gx:angles>
+					<gx:angles>120 0 0</gx:angles>
+					<gx:angles>130 0 0</gx:angles>
+					<gx:angles>140 0 0</gx:angles>
+					<gx:angles>150 0 0</gx:angles>
+					<gx:angles>150 0 0</gx:angles>
+					<gx:angles>150 0 0</gx:angles>
+					<gx:angles>160 0 0</gx:angles>
+					<gx:angles>160 0 0</gx:angles>
+					<gx:angles>160 0 0</gx:angles>
+					<gx:angles>160 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<gx:angles>170 0 0</gx:angles>
+					<speed>376</speed>
+					<speed>367</speed>
+					<speed>361</speed>
+					<speed>371</speed>
+					<speed>367</speed>
+					<speed>363</speed>
+					<speed>359</speed>
+					<speed>356</speed>
+					<speed>352</speed>
+					<speed>347</speed>
+					<speed>343</speed>
+					<speed>339</speed>
+					<speed>334</speed>
+					<speed>329</speed>
+					<speed>326</speed>
+					<speed>321</speed>
+					<speed>318</speed>
+					<speed>315</speed>
+					<speed>311</speed>
+					<speed>307</speed>
+					<speed>301</speed>
+					<speed>294</speed>
+					<speed>289</speed>
+					<speed>295</speed>
+					<speed>280</speed>
+					<speed>277</speed>
+					<speed>287</speed>
+					<speed>275</speed>
+					<speed>275</speed>
+					<speed>276</speed>
+					<speed>277</speed>
+					<speed>279</speed>
+					<speed>281</speed>
+					<speed>282</speed>
+					<speed>282</speed>
+					<speed>281</speed>
+					<speed>280</speed>
+					<speed>274</speed>
+					<speed>266</speed>
+					<speed>260</speed>
+					<speed>254</speed>
+					<speed>244</speed>
+					<speed>235</speed>
+					<speed>235</speed>
+					<speed>219</speed>
+					<speed>212</speed>
+					<speed>214</speed>
+					<speed>201</speed>
+					<speed>197</speed>
+					<speed>193</speed>
+					<speed>190</speed>
+					<speed>187</speed>
+					<speed>183</speed>
+					<speed>180</speed>
+					<speed>186</speed>
+					<speed>178</speed>
+					<speed>177</speed>
+					<speed>183</speed>
+					<speed>177</speed>
+					<speed>176</speed>
+					<speed>175</speed>
+					<speed>173</speed>
+					<speed>171</speed>
+					<speed>165</speed>
+					<speed>166</speed>
+					<speed>167</speed>
+				</gx:Track>
+			</Placemark>
+		</Folder>
+	</Document>
+</kml>

@@ -2,6 +2,8 @@
 require(dirname(__FILE__).'/IGCReader.php');
 require(dirname(__FILE__).'/FLGReader.php');
 require(dirname(__FILE__).'/GPXReader.php');
+require(dirname(__FILE__).'/KMLReader.php');
+require(dirname(__FILE__).'/WPTReader.php');
 
 /**
  * Class utility for loading a trackfile
@@ -22,8 +24,12 @@ class TrackfileLoader
 				return new IGCReader($file);
       case 'flg':
         return new FLGReader($file);
-      case 'flg':
+      case 'gpx':
         return new GPXReader($file);
+      case 'kml':
+        return new KMLReader($file);
+      case 'wpt':
+        return new WPTReader($file);
 			default:
 				return false;
 		}
