@@ -25,40 +25,61 @@ class KMLReader implements ITrackfileReader
   public function getRecords()
   {
     $pt_records = array();
-    //TODO
-    /*$xml = null;
+    $xml = null;
+    $prefixns = "";
     if ($this->fhandle) {
       $namespaces = $this->fhandle->getNamespaces(true);
       if(isset($namespaces[""]))  // if you have a default namespace
       {
         // register a prefix for that default namespace:
         $this->fhandle->registerXPathNamespace("default", $namespaces[""]);
+        $prefixns = "default:";
         // and use that prefix in all of your xpath expressions:
-        $xpath_to_document = "//default:gpx";
+        $xpath_to_document = "//".$prefixns."Document";
       }
       else
-        $xpath_to_document = "//gpx";
+        $xpath_to_document = "//Document";
       $xml = $this->fhandle->xpath($xpath_to_document);
       if (is_array($xml))
         $xml = $xml[0];
-      if(isset($namespaces[""]))
+      if(strlen($prefixns)>0)
         $xml->registerXPathNamespace("default", $namespaces[""]);
     }
     if ($xml) {
-      $assign_pt = function($pt) use (&$pt_records) {
-        $pt_records[] = (object)[
-        'date' => DateTime::createFromFormat('Y-m-d\TH:i:s+', (string) $pt->time),
-        'latitude' => (string) $pt['lat'],
-        'longitude' => (string) $pt['lon'],
-        'altitude' => (string) $pt->ele
-				];
-      };
-      foreach($xml->xpath("//default:trkpt") as $pt)
-        $assign_pt($pt);
-      if (count($pt_records)<=0)
-        foreach($xml->xpath("//default:wpt") as $pt)
-          $assign_pt($pt);
-    }*/
+      foreach ($namespaces as $ns => $nsurl)
+      {
+        $nstmpprefix1 = $prefixns;
+        if (strlen($ns)>0)
+          $nstmpprefix1 = $ns.":";
+        foreach($xml->xpath("//".$nstmpprefix1."Track") as $trk)
+        {
+          if(strlen($prefixns)>0)
+            $trk->registerXPathNamespace("default", $namespaces[""]);
+          foreach ($namespaces as $ns2 => $nsurl2)
+          {
+            $nstmpprefix2 = $prefixns;
+            if (strlen($ns2)>0)
+              $nstmpprefix2 = $ns2.":";
+            foreach($trk->xpath($nstmpprefix2."when") as $pt)
+              $pt_records[] = (object)['date' => DateTime::createFromFormat('Y-m-d\TH:i:s+', (string) $pt), 'latitude' => 0.0, 'longitude' => 0.0, 'altitude' => 0.0];
+            $i = 0;
+            foreach($trk->xpath($nstmpprefix2."coord") as $pt) {
+              //-93.3806146339391 44.8823651507134 2743
+              $line = explode(' ', $pt);
+              if (count($line)<3)
+                continue;
+              $pt_records[$i]->latitude = floatval($line[0]);
+              $pt_records[$i]->longitude = floatval($line[1]);
+              $pt_records[$i]->altitude = floatval($line[2]);
+              $i++;
+            }
+          }
+        }
+      }
+    }
+    /*echo "<pre>";
+    print_r($pt);
+    echo "</pre>";*/
     return $pt_records;
   }
 }

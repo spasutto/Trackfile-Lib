@@ -26,36 +26,38 @@ class GPXReader implements ITrackfileReader
   {
     $pt_records = array();
     $xml = null;
+    $prefixns = "";
     if ($this->fhandle) {
       $namespaces = $this->fhandle->getNamespaces(true);
       if(isset($namespaces[""]))  // if you have a default namespace
       {
         // register a prefix for that default namespace:
         $this->fhandle->registerXPathNamespace("default", $namespaces[""]);
+        $prefixns = "default:";
         // and use that prefix in all of your xpath expressions:
-        $xpath_to_document = "//default:gpx";
+        $xpath_to_document = "//".$prefixns."gpx";
       }
       else
         $xpath_to_document = "//gpx";
       $xml = $this->fhandle->xpath($xpath_to_document);
       if (is_array($xml))
         $xml = $xml[0];
-      if(isset($namespaces[""]))
+      if(strlen($prefixns)>0)
         $xml->registerXPathNamespace("default", $namespaces[""]);
     }
     if ($xml) {
       $assign_pt = function($pt) use (&$pt_records) {
         $pt_records[] = (object)[
         'date' => DateTime::createFromFormat('Y-m-d\TH:i:s+', (string) $pt->time),
-        'latitude' => (string) $pt['lat'],
-        'longitude' => (string) $pt['lon'],
-        'altitude' => (string) $pt->ele
+        'latitude' => floatval((string) $pt['lat']),
+        'longitude' => floatval((string) $pt['lon']),
+        'altitude' => floatval((string) $pt->ele)
 				];
       };
-      foreach($xml->xpath("//default:trkpt") as $pt)
+      foreach($xml->xpath("//".$prefixns."trkpt") as $pt)
         $assign_pt($pt);
       if (count($pt_records)<=0)
-        foreach($xml->xpath("//default:wpt") as $pt)
+        foreach($xml->xpath("//".$prefixns."wpt") as $pt)
           $assign_pt($pt);
     }
     return $pt_records;

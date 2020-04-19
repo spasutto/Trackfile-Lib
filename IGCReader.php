@@ -168,9 +168,9 @@ class IGCReader implements ITrackfileReader
         //$date->add(new DateInterval("PT".intval($each->time_array['h'])."H".$each->time_array['m']."M".$each->time_array['s']."S"));
         $pt_records[] = (object)[
         'date' => clone $date,
-        'latitude' => $each->latitude['decimal_degrees'],
-        'longitude' => $each->longitude['decimal_degrees'],
-        'altitude' => ''.$each->pressure_altitude];
+        'latitude' => floatval($each->latitude['decimal_degrees']),
+        'longitude' => floatval($each->longitude['decimal_degrees']),
+        'altitude' => floatval($each->pressure_altitude)];
       }
     }
     return $pt_records;

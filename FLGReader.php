@@ -40,9 +40,9 @@ class FLGReader implements ITrackfileReader
 				$cols = explode(';', $buffer);
         $pt_records[] = (object)[
         'date' => DateTime::createFromFormat('Y-m-d\TH:i:s+', $cols[1]),
-        'latitude' => $cols[2],
-        'longitude' => $cols[3],
-        'altitude' => $cols[4]
+        'latitude' => floatval($cols[2]),
+        'longitude' => floatval($cols[3]),
+        'altitude' => floatval($cols[4])
 				];
       }
     }

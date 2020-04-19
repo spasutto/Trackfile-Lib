@@ -33,9 +33,9 @@ class WPTReader implements ITrackfileReader
         $cols = array_values(array_filter(explode(' ', $buffer), function($val) {return strlen($val);}));
         $pt_records[] = (object)[
         'date' => DateTime::createFromFormat('j-M-y H:i:s', $cols[5]." ".$cols[6]),
-        'latitude' => preg_replace("/[^0-9\.]/", "", $cols[3]),
-        'longitude' => preg_replace("/[^0-9\.]/", "", $cols[4]),
-        'altitude' => $cols[7]
+        'latitude' => floatval(preg_replace("/[^0-9\.]/", "", $cols[3])),
+        'longitude' => floatval(preg_replace("/[^0-9\.]/", "", $cols[4])),
+        'altitude' => floatval($cols[7])
         ];
         //print_r($pt_records[count($pt_records)-1]);echo "<BR>";
       }
