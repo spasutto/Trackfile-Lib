@@ -25,40 +25,45 @@ class GPXReader implements ITrackfileReader
   public function getRecords()
   {
     $pt_records = array();
-    $xml = null;
-    $prefixns = "";
+    $pts = null;
+    $namespaces = array();
     if ($this->fhandle) {
       $namespaces = $this->fhandle->getNamespaces(true);
       if(isset($namespaces[""]))  // if you have a default namespace
       {
         // register a prefix for that default namespace:
         $this->fhandle->registerXPathNamespace("default", $namespaces[""]);
-        $prefixns = "default:";
-        // and use that prefix in all of your xpath expressions:
-        $xpath_to_document = "//".$prefixns."gpx";
       }
-      else
-        $xpath_to_document = "//gpx";
-      $xml = $this->fhandle->xpath($xpath_to_document);
-      if (is_array($xml))
-        $xml = $xml[0];
-      if(strlen($prefixns)>0)
-        $xml->registerXPathNamespace("default", $namespaces[""]);
+      foreach ($namespaces as $ns => $nsurl) {
+        $prefixns = "default:";
+        if (strlen($ns)>0)
+          $prefixns = $ns.":";
+        $pts = $this->fhandle->xpath("//".$prefixns."trkpt");
+        if (!$pts)
+          $pts = $this->fhandle->xpath("//".$prefixns."wpt");
+        if ($pts)
+          break;
+      }
     }
-    if ($xml) {
-      $assign_pt = function($pt) use (&$pt_records) {
+    if (is_array($pts)) {
+      $assign_pt = function($pt) use (&$pt_records, $prefixns, $namespaces) {
+        if(isset($namespaces[""]))
+          $pt->registerXPathNamespace("default", $namespaces[""]);
+        $curdate = $pt->xpath("".$prefixns."time");
+        $curele = $pt->xpath("".$prefixns."ele");
+        if (is_array($curdate) && count($curdate)>0)
+          $curdate = $curdate[0];
+        if (is_array($curele) && count($curele)>0)
+          $curele = $curele[0];
         $pt_records[] = (object)[
-        'date' => DateTime::createFromFormat('Y-m-d\TH:i:s+', (string) $pt->time),
+        'date' => DateTime::createFromFormat('Y-m-d\TH:i:s+', (string) $curdate),
         'latitude' => floatval((string) $pt['lat']),
         'longitude' => floatval((string) $pt['lon']),
-        'altitude' => floatval((string) $pt->ele)
+        'altitude' => floatval((string) $curele)
 				];
       };
-      foreach($xml->xpath("//".$prefixns."trkpt") as $pt)
+      foreach($pts as $pt)
         $assign_pt($pt);
-      if (count($pt_records)<=0)
-        foreach($xml->xpath("//".$prefixns."wpt") as $pt)
-          $assign_pt($pt);
     }
     return $pt_records;
   }
