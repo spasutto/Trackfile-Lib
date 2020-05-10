@@ -1,4 +1,6 @@
 <?php
+
+require_once(dirname(__FILE__).'/Utility.php');
 require(dirname(__FILE__).'/IGCReader.php');
 require(dirname(__FILE__).'/FLGReader.php');
 require(dirname(__FILE__).'/GPXReader.php');
@@ -15,7 +17,7 @@ class TrackfileLoader
    */
 	public static function load($file)
 	{
-		if (!is_file($file) && !URL_exists($file))
+		if (!is_file($file) && !@URL_exists($file))
 		  throw new NotFoundException($file);
 		$path_parts = pathinfo($file);
 		if (!isset($path_parts['extension']))
