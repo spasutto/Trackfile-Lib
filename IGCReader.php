@@ -272,8 +272,11 @@ function loadIGC() {
 
   private static function ClassAutoloader($class_name)
   {
-    require(dirname(__FILE__).DIRECTORY_SEPARATOR.
-            "lib".DIRECTORY_SEPARATOR.$class_name.".php");
+    $file_path = dirname(__FILE__).DIRECTORY_SEPARATOR.
+    "lib".DIRECTORY_SEPARATOR.$class_name.".php";
+    if (!is_file($file_path))
+      throw new NotFoundException($file_path);
+    @require($file_path);
   }
   
   private static function startsWith($haystack, $needle)

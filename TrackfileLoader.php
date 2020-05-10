@@ -15,6 +15,8 @@ class TrackfileLoader
    */
 	public static function load($file)
 	{
+		if (!is_file($file) && !URL_exists($file))
+		  throw new NotFoundException($file);
 		$path_parts = pathinfo($file);
 		if (!isset($path_parts['extension']))
 				return false;
