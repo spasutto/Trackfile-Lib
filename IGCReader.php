@@ -76,7 +76,7 @@ class IGCReader implements ITrackfileReader
 	{
 		$this->detailsset = false;
 		spl_autoload_register('self::ClassAutoloader');
-		if (is_file($file_path)) {
+		if (@is_file($file_path)) {
 			$handle = @fopen($file_path, "r");
 			if ($handle) {
 				while (($buffer = fgets($handle)) !== FALSE) {

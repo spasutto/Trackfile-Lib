@@ -17,7 +17,7 @@ class KMLReader implements ITrackfileReader
 	 */
 	public function __construct($file_path)
 	{
-		if (is_file($file_path)) {
+		if (@is_file($file_path)) {
 			$this->fhandle = @simplexml_load_file($file_path);
 		} else {
 			$this->fhandle = @simplexml_load_string($file_path);

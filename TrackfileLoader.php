@@ -19,10 +19,12 @@ class TrackfileLoader
 	{
 		if (!$ext && !is_file($file) && !@URL_exists($file))
 			throw new NotFoundException($file);
-		$path_parts = pathinfo($file);
-		if (!isset($path_parts['extension']))
-				return false;
-		$ext = strtolower($ext ?? $path_parts['extension']);
+		if (!$ext) {
+    		$path_parts = pathinfo($file);
+    		if (!isset($path_parts['extension']))
+    			return false;
+		}
+		$ext = strtolower($ext != null? $ext:$path_parts['extension']);
 		switch ($ext)
 		{
 			case 'igc':

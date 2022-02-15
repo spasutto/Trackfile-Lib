@@ -18,7 +18,7 @@ class WPTReader implements ITrackfileReader
 	 */
 	public function __construct($file_path)
 	{
-		if (is_file($file_path)) {
+		if (@is_file($file_path)) {
 			$this->fhandle = @fopen($file_path, "r");
 		} else {
 			$this->buffer = $file_path;

@@ -18,7 +18,7 @@ class GPXReader implements ITrackfileReader
 	public function __construct($file_path)
 	{
 		set_error_handler("exception_error_handler");
-		if (is_file($file_path)) {
+		if (@is_file($file_path)) {
 			$this->fhandle = @simplexml_load_file($file_path);
 		} else {
 			$this->fhandle = @simplexml_load_string($file_path);
