@@ -15,5 +15,6 @@ interface ITrackfileReader
 {
 	public function __construct($file_path);
 	public function getRecords();
+	public function getFirstRecord();
 }
 ?>

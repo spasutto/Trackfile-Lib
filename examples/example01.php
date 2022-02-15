@@ -23,6 +23,7 @@ if (!$tfreader)
 	return;
 }
 $pts = $tfreader->getRecords();
+echo "duration : ".$tfreader->duration." s<BR>";
 //echo json_encode($pts, JSON_PRETTY_PRINT);
 ?>
 <table border="1">

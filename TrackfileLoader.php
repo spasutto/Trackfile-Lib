@@ -12,40 +12,41 @@ require(dirname(__FILE__).'/WPTReader.php');
  */
 class TrackfileLoader
 {
-  /**
-   * Load a trackfile and return the associated reader
-   */
-	public static function load($file)
+	/**
+	 * Load a trackfile and return the associated reader
+	 */
+	public static function load($file, $ext = null)
 	{
-		if (!is_file($file) && !@URL_exists($file))
-		  throw new NotFoundException($file);
+		if (!$ext && !is_file($file) && !@URL_exists($file))
+			throw new NotFoundException($file);
 		$path_parts = pathinfo($file);
 		if (!isset($path_parts['extension']))
 				return false;
-		switch (strtolower($path_parts['extension']))
+		$ext = strtolower($ext ?? $path_parts['extension']);
+		switch ($ext)
 		{
 			case 'igc':
 				return new IGCReader($file);
-      case 'flg':
-        return new FLGReader($file);
-      case 'gpx':
-        return new GPXReader($file);
-      case 'kml':
-        return new KMLReader($file);
-      case 'wpt':
-        return new WPTReader($file);
+			case 'flg':
+				return new FLGReader($file);
+			case 'gpx':
+				return new GPXReader($file);
+			case 'kml':
+				return new KMLReader($file);
+			case 'wpt':
+				return new WPTReader($file);
 			default:
 				return false;
 		}
 	}
 
-  /**
-   * Return a GPX string representation of the trackfile
-   */
-	public static function toGPX($file)
+	/**
+	 * Return a GPX string representation of the trackfile
+	 */
+	public static function toGPX($file, $ext)
 	{
 		$gpxdata = '';
-		$tfreader = TrackfileLoader::load($file);
+		$tfreader = TrackfileLoader::load($file, $ext);
 		if (!$tfreader)
 		{
 			return "<?xml version=\"1.0\"?><err>bad or unknown trackfile</err>";
@@ -66,14 +67,14 @@ class TrackfileLoader
 		return $gpxdata;
 	}
 
-  /**
-   * Convert a date to GPX ISO8601 like format
+	/**
+	 * Convert a date to GPX ISO8601 like format
 	 * e.g. 2018-11-04T10:33:20Z
-   */
-  public static function toGMT($date)
-  {
-    return substr(date('c', $date->getTimestamp()), 0, 19).'Z';
-  }
+	 */
+	public static function toGMT($date)
+	{
+		return substr(date('c', $date->getTimestamp()), 0, 19).'Z';
+	}
 
 }
 ?>
