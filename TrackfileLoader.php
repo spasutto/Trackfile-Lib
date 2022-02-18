@@ -75,7 +75,7 @@ class TrackfileLoader
 	 */
 	public static function toGMT($date)
 	{
-		return substr(date('c', $date->getTimestamp()), 0, 19).'Z';
+		return $date->format('Y-m-d\\TH:i:s\\Z');
 	}
 
 }
