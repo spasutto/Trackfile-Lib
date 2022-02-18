@@ -179,6 +179,15 @@ class IGCReader implements ITrackfileReader
 		$date = $this->datetime;// $this->toGMT($this->datetime);
 		//$dateinit = $date;
 		if (is_array($this->records)) {
+			$use_gps = true;
+			foreach ($this->records as $each) {
+				if ($each->type == "B" && floatval($each->pressure_altitude) != 0)
+				{
+					$use_gps = false;
+					break;
+				}
+			}
+
 			foreach ($this->records as $each) {
 				if ($each->type == "B")
 				{
@@ -188,7 +197,7 @@ class IGCReader implements ITrackfileReader
 					'date' => clone $date,
 					'latitude' => floatval($each->latitude['decimal_degrees']),
 					'longitude' => floatval($each->longitude['decimal_degrees']),
-					'altitude' => floatval($each->pressure_altitude)];
+					'altitude' => floatval($use_gps?$each->gps_altitude:$each->pressure_altitude)];
 					if ($first)
 						break;
 				}
