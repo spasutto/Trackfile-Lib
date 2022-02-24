@@ -54,7 +54,7 @@ class TrackfileLoader
 			return "<?xml version=\"1.0\"?><err>bad or unknown trackfile</err>";
 		}
 		$pts = $tfreader->getRecords();
-		$GPX_HEADER = "<?xml version=\"1.0\"?>\n<gpx\nxmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxmlns=\"http://www.topografix.com/GPX/1/1\"\nxsi:schemaLocation=\"http://www.topografix.com/GPX/1/1/gpx.xsd\"\nversion=\"1.1\">\n\t<trk>\n\t\t<src>FlightLog</src>\n\t\t<trkseg>\n";
+		$GPX_HEADER = "<?xml version=\"1.0\"?>\n<gpx\nxmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\nxmlns=\"http://www.topografix.com/GPX/1/1\"\nxsi:schemaLocation=\"http://www.topografix.com/GPX/1/1/gpx.xsd\"\nversion=\"1.1\">\n\t<trk>\n\t\t<src>FlightLog</src>\n\t\t<trkseg>\n<extensions><line xmlns=\"http://www.topografix.com/GPX/gpx_style/0/2\"><color>0000FF</color><weight>2</weight></line></extensions>";
 		$GPX_FOOTER = "\t\t</trkseg>\n\t</trk>\n</gpx>";
 
 		$gpxdata = $GPX_HEADER;
