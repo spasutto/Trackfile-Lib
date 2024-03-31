@@ -137,6 +137,14 @@ class IGCReader implements ITrackfileReader
 																			 intval(substr($each->value, 0, 2)));
 						}
 					}
+					elseif ($each->tlc == 'GTY') {
+						if ($this->startsWith($each->value, 'GLIDERTYPE:')) {
+						  $this->glider_type = substr($each->value, 11);
+						}
+						else {
+						  $this->glider_type = $each->value;
+						}
+					}
 					elseif ($each->tlc == 'PLT') {
 						$this->pilot = ucwords(strtolower($each->value));
 					}
